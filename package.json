@@ -8,10 +8,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/aaronpearce/homebridge-motion-switch.git"
+    "url": "git://github.com/dieteroo/homebridge-motion-switch-with-accessoryinformation.git"
   },
   "bugs": {
-    "url": "http://github.com/aaronpearce/homebridge-motion-switch/issues"
+    "url": "http://github.com/dieteroo/homebridge-motion-switch-with-accessoryinformation/issues"
   },
   "engines": {
     "node": ">=0.12.0",
