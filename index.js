@@ -68,3 +68,7 @@ MotionSwitchAccessorywithaccessoryinformation.prototype.resetSensors = function(
 MotionSwitchAccessorywithaccessoryinformation.prototype.getServices = function() {
   return [this.motionSensorService, this.switchService];
 }
+
+MotionSwitchAccessorywithaccessoryinformation.prototype.getServices = function() {
+  return [this.informationService, this.switchService];
+}
