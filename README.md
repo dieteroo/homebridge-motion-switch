@@ -4,7 +4,7 @@ Can be used to trigger a motion detected event when a switch is turned on, via S
 
 #### Setup
 
-`npm install -g homebridge-motion-switch`
+`npm install -g homebridge-motion-switch-with-accessoryinformation`
 
 And add the following to the accessories list in your Homebridge config. Change names as you wish.
 
