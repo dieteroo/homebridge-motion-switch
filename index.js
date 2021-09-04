@@ -7,7 +7,7 @@ module.exports = function(homebridge) {
   homebridge.registerAccessory("homebridge-motion-switch-with-accessoryinformation", "Motion Switch with accessoryinformation", MotionSwitchAccessorywithaccessoryinformation);
 }
 
-function MotionSwitchAccessory(log, config) {
+function MotionSwitchAccessorywithaccessoryinformation(log, config) {
   this.log = log;
   this.motionSensorName = config["motion_sensor_name"];
   this.switchName = config["switch_name"];
@@ -33,15 +33,15 @@ function MotionSwitchAccessory(log, config) {
     .on('set', this.setSwitchState.bind(this));
 }
 
-MotionSwitchAccessory.prototype.getMotionSensorState = function(callback) {
+MotionSwitchAccessorywithaccessoryinformation.prototype.getMotionSensorState = function(callback) {
   callback(null, this.motionSensorState)
 }
 
-MotionSwitchAccessory.prototype.getSwitchState = function(callback) {
+MotionSwitchAccessorywithaccessoryinformation.prototype.getSwitchState = function(callback) {
   callback(null, this.switchState)
 }
 
-MotionSwitchAccessory.prototype.setSwitchState = function(state, callback) {
+MotionSwitchAccessorywithaccessoryinformation.prototype.setSwitchState = function(state, callback) {
   this.switchState = state
 
   // When we turn this on, we also want to turn on the motion sensor
@@ -49,7 +49,7 @@ MotionSwitchAccessory.prototype.setSwitchState = function(state, callback) {
   callback(null);
 }
 
-MotionSwitchAccessory.prototype.trigger = function() {
+MotionSwitchAccessorywithaccessoryinformation.prototype.trigger = function() {
   if (this.switchState) {
     this.motionSensorState = 1;
     this.motionSensorService.setCharacteristic(Characteristic.MotionDetected, Boolean(this.motionSensorState));
@@ -57,7 +57,7 @@ MotionSwitchAccessory.prototype.trigger = function() {
   }
 }
 
-MotionSwitchAccessory.prototype.resetSensors = function(self) {
+MotionSwitchAccessorywithaccessoryinformation.prototype.resetSensors = function(self) {
   self.switchState = 0
   
   self.motionSensorState = 0
@@ -65,6 +65,6 @@ MotionSwitchAccessory.prototype.resetSensors = function(self) {
   self.motionSensorService.setCharacteristic(Characteristic.MotionDetected, Boolean(self.motionSensorState));
 }
 
-MotionSwitchAccessory.prototype.getServices = function() {
+MotionSwitchAccessorywithaccessoryinformation.prototype.getServices = function() {
   return [this.motionSensorService, this.switchService];
 }
