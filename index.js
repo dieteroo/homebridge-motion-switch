@@ -4,7 +4,7 @@ module.exports = function(homebridge) {
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
   
-  homebridge.registerAccessory("homebridge-motion-switch", "Motion Switch", MotionSwitchAccessory);
+  homebridge.registerAccessory("homebridge-motion-switch-with-accessoryinformation", "Motion Switch with accessoryinformation", MotionSwitchAccessorywithaccessoryinformation);
 }
 
 function MotionSwitchAccessory(log, config) {
@@ -14,6 +14,13 @@ function MotionSwitchAccessory(log, config) {
   this.switchState = false;
   this.motionSensorState = false;
 
+  this.informationService = new Service.AccessoryInformation();
+  this.informationService
+    .setCharacteristic(Characteristic.Manufacturer, 'Homebridge')
+    .setCharacteristic(Characteristic.Model, 'Motion Switch')
+    .setCharacteristic(Characteristic.FirmwareRevision, '1.2.3')
+    .setCharacteristic(Characteristic.SerialNumber, this.switchName.replace(/\s/g, '').toUpperCase());
+  
   this.motionSensorService = new Service.MotionSensor(this.motionSensorName);
   this.motionSensorService
     .getCharacteristic(Characteristic.MotionDetected)
