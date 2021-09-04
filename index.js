@@ -14,12 +14,20 @@ function MotionSwitchAccessorywithaccessoryinformation(log, config) {
   this.switchState = false;
   this.motionSensorState = false;
 
-  this.informationService = new Service.AccessoryInformation();
-  this.informationService
+  this.motionSensorinformationService = new Service.AccessoryInformation();
+  this.motionSensorinformationService
+    .setCharacteristic(Characteristic.Manufacturer, 'Homebridge')
+    .setCharacteristic(Characteristic.Model, 'Motion Switch')
+    .setCharacteristic(Characteristic.FirmwareRevision, '1.2.3')
+    .setCharacteristic(Characteristic.SerialNumber, this.motionSensorName.replace(/\s/g, '').toUpperCase());
+
+  this.switchinformationService = new Service.AccessoryInformation();
+  this.switchinformationService
     .setCharacteristic(Characteristic.Manufacturer, 'Homebridge')
     .setCharacteristic(Characteristic.Model, 'Motion Switch')
     .setCharacteristic(Characteristic.FirmwareRevision, '1.2.3')
     .setCharacteristic(Characteristic.SerialNumber, this.switchName.replace(/\s/g, '').toUpperCase());
+  
   
   this.motionSensorService = new Service.MotionSensor(this.motionSensorName);
   this.motionSensorService
@@ -66,6 +74,5 @@ MotionSwitchAccessorywithaccessoryinformation.prototype.resetSensors = function(
 }
 
 MotionSwitchAccessorywithaccessoryinformation.prototype.getServices = function() {
-  return [this.motionSensorService, this.switchService];
-  return [this.informationService, this.switchService];
+  return [this.motionSensorService, this.switchService, this.motionSensorinformationService, this.switchinformationService];
 }
