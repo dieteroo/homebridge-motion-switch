@@ -1,7 +1,7 @@
 {
   "name": "homebridge-motion-switch-with-accessoryinformation",
   "version": "0.0.1",
-  "description": "Motion Switch plugin for homebridge: https://github.com/nfarina/homebridge",
+  "description": "Motion Switch plugin for homebridge",
   "license": "ISC",
   "keywords": [
     "homebridge-plugin"
