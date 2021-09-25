@@ -1,6 +1,6 @@
 {
   "name": "homebridge-motion-switch-with-accessoryinformation",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Motion Switch plugin for homebridge",
   "main": "index.js",
   "repository": {
