@@ -18,3 +18,5 @@ And add the following to the accessories list in your Homebridge config. Change 
 ```
 
 Then add it to HomeKit, once added, you will need to turn on Notifications for the motion sensor you just added.
+
+Serialnumber will be based on motion_sensor_name (All caps, no spaces.
